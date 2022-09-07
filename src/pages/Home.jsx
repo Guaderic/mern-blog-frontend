@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 //import axios from "../axios";
 
 import { Post, TagsBlock, CommentsBlock } from "../components";
-import { fetchPosts } from "../redux/slices/posts";
+import { fetchPosts, fetchTags } from "../redux/slices/posts";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ export const Home = () => {
   const isPostsLoading = posts.status === "loading";
   React.useEffect(() => {
     dispatch(fetchPosts());
+    dispatch(fetchTags());
   }, []);
   return (
     <>
